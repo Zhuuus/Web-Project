@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {ActivatedRoute, RouterModule, Router} from "@angular/router";
+import { UserRegister } from '../models';
+
 
 @Component({
   selector: 'app-login',
@@ -8,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+  constructor() {}
 }

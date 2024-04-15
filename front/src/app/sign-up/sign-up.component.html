@@ -1,0 +1,23 @@
+<div>
+    <h1>Hi Welcome Back</h1>
+        <h3>Create An Account</h3>
+            <form>
+                <div>
+                    <label for="name">Name</label>
+                    <input  type="text" [(ngModel)]="inputName">
+                    <label for="surename">Surename</label>
+                    <input  type="text">
+                    <label for="email">Email</label>
+                    <input  required  type="text">
+                    <label for="phonenumber">Phone Number</label>
+                    <input  required  type="number">
+                    <label for="date">Date</label>
+                    <!-- need to write gender -->
+                    <label for="password">Password</label>
+                    <input  type="password">
+                </div>
+                <button type="button" (click)="createUser()">Submit</button>
+                <span>Already have an account? 
+                <a routerLink="/login">Login</a></span>
+            </form>
+  </div>

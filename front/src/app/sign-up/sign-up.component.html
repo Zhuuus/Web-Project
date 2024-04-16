@@ -1,23 +1,25 @@
 <div>
     <h1>Hi Welcome Back</h1>
-        <h3>Create An Account</h3>
-            <form>
-                <div>
-                    <label for="name">Name</label>
-                    <input  type="text" [(ngModel)]="inputName">
-                    <label for="surename">Surename</label>
-                    <input  type="text">
-                    <label for="email">Email</label>
-                    <input  required  type="text">
-                    <label for="phonenumber">Phone Number</label>
-                    <input  required  type="number">
-                    <label for="date">Date</label>
-                    <!-- need to write gender -->
-                    <label for="password">Password</label>
-                    <input  type="password">
-                </div>
-                <button type="button" (click)="createUser()">Submit</button>
-                <span>Already have an account? 
-                <a routerLink="/login">Login</a></span>
-            </form>
+    <h3>Create An Account</h3>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+      <div>
+        <label for="name">Name</label>
+        <input formControlName="inputName" type="text">
+        <label for="surename">Surename</label>
+        <input formControlName="inputSureName" type="text">
+        <label for="email">Email</label>
+        <input formControlName="inputEmail" required type="email">
+        <label for="phonenumber">Phone Number</label>
+        <input formControlName="inputPhoneNumber" required type="tel">
+        <label for="date">Date</label>
+        <input formControlName="inputDate" type="date">
+        <label for="password">Password</label>
+        <input formControlName="inputPassword" type="password">
+      </div>
+      <button type="submit">Submit</button>
+      <span>Already have an account? 
+        <a routerLink="/login">Login</a>
+      </span>
+    </form>
   </div>
+  

@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import {ActivatedRoute, RouterModule, Router} from "@angular/router";
-import { UserRegister } from '../models';
+import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+import { signUp } from '../models';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserRegister } from './models';
+import { signUp } from './models';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ export class SignupService {
 
   constructor(private http: HttpClient) { }
 
-  createUser(user: UserRegister): Observable<UserRegister> {
-    return this.http.post<UserRegister>(`${this.apiUrl}api/companies/`, user);
+  signUp(user: signUp): Observable<signUp> {
+    return this.http.post<signUp>(`${this.apiUrl}api/companies/`, user);
   }
 }

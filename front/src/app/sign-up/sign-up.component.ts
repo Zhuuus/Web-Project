@@ -1,34 +1,47 @@
-import { Component } from '@angular/core';
-import { UserRegister } from '../models';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignupService } from '../signup.service';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
-  users!: UserRegister[]
-  inputName: string = "";
-  inputSureName: string = "";
-  inputEmail: string = "";
+export class SignUpComponent implements OnInit {
+  signUpForm!: FormGroup;
 
+  constructor(
+    private router: Router,
+    private signUpService: SignupService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  constructor(private route: ActivatedRoute,
-    private signUpService: SignupService) {
+  ngOnInit(): void {
+    this.signUpForm = this.formBuilder.group({
+      inputName: [''],
+      inputSureName: [''],
+      inputEmail: [''],
+      inputPhoneNumber: [''],
+      inputDate: [''],
+      inputPassword: ['']
+    });
   }
 
-  createUser() {
-    this.signUpService.createUser(this.users.id, this.inputName, this.inputSureName, this.inputEmail).subscribe((user) =>
-      this.users. = user.id
-    );
-    this.inputName = "";
+  signUp() {
+    this.signUpService.signUp(this.signUpForm.value)
+      .subscribe(
+        res => {
+          alert('SIGNUP SUCCESSFUL');
+          this.signUpForm.reset();
+          this.router.navigate(['login']);
+        },
+        err => {
+          alert('Something went wrong');
+        }
+      );
   }
-
 }

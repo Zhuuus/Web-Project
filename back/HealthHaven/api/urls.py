@@ -1,5 +1,5 @@
-from django.urls import path,include
-from api.views.cbv import PersonalListApiView, PersonalDataApiView
+from django.urls import path, include
+from .views.cbv import PersonalListApiView, PersonalDataApiView
 
 urlpatterns = [
     path("personaldataset/", PersonalListApiView.as_view()),

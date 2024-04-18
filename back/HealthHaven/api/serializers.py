@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import PersonalData
+from .models import PersonalData
 
 class PersonalDataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only = True)

@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     
     'api',
 
+    #third part app
+
+    'rest_framework_simplejwt',
+
     "rest_framework",
 
     'corsheaders',
@@ -68,7 +72,7 @@ ROOT_URLCONF = 'HealthHaven.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +121,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    
+}
+
+# from rest_framework_simplejwt.authentication import JWTAuthentication
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

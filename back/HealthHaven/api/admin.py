@@ -3,4 +3,7 @@ from api.models import PersonalData
 
 # Register your models here.
 
-admin.site.register(PersonalData)
+@admin.register(PersonalData)
+class PersonalDataAdmin(admin.ModelAdmin):
+    list_display = ('id', 'full_name', 'user')
+    search_fields = ('name',)

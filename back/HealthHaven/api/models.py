@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
 class PersonalData(models.Model):
     full_name = models.CharField(max_length=255)
     date_of_birth = models.DateField()
@@ -10,9 +10,11 @@ class PersonalData(models.Model):
     contraindications = models.TextField(blank=True)
     guardian_contact = models.CharField(max_length=20)
     hospital = models.CharField(max_length=255)
-
-    # def __str__(self):
-    #     return self.full_name
+    user = models.ForeignKey(User,
+        on_delete=models.CASCADE,
+        related_name='personaldataset',
+        null=True,blank=True
+        )
     
     class Meta():
         verbose_name = "PersonalData"

@@ -1,5 +1,4 @@
 export interface PersonalData {
-// <<<<<<< HEAD
     full_name: string;
     date_of_birth: Date;
     blood_group: string;
@@ -30,5 +29,4 @@ export interface signUp {
 //     contraindications:  string
 //     guardian_contact:   string
 //     hospital:           string
-// >>>>>>> f063f88d31c9e9c9593cb54180723665b87edce5
 }

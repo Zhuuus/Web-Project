@@ -7,9 +7,11 @@ body {
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
+    
 }
 
 .container {
+    
     display: flex;
     width: 100%;
     height: 64px;
@@ -19,8 +21,9 @@ body {
     padding-left: 54px;
     padding-right: 54px;
     font-size: 24px;
-    background-color: rgb(69, 248, 10);
+    background-color: rgb(10, 212, 248);
     text-align: right;
+    
 }
 
 .block-in-container-home {
@@ -30,6 +33,10 @@ body {
 
 .block-in-container-other {
     text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
 .text-in-container-other{

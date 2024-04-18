@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'healthhaven',
         'USER': 'postgres',
-        'PASSWORD': 'SXb&nx_u1',
+        'PASSWORD': '901127Dom',
         'HOST': 'localhost',
         'PORT': '5432',
     }

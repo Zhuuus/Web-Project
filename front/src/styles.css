@@ -1,5 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 *{
-    max-width: 900px; /* Example value */
+    text-decoration: none;
+    
+}
+body{
+    display: flex;
     margin: auto;
+    align-items: stretch;
+    justify-content: center;
+    max-width: 900px; /* Example value */
+    width: 100%;
+    background-image: url('./fon2.jpg');
+    background-size:auto;
+    background-repeat: space ;
+
+    
+}
+.asd{
+    display: flex;
+    
+    align-items: stretch;
+    box-shadow: 10px,10px,10px,10px,color(srgb red green blue);
+    background-color: white;
+ 
+
+}
+app-root{
+    /* border-radius: 20%; */
+    width:auto;
 }

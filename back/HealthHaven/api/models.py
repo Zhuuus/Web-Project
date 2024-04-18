@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class PersonalData(models.Model):
+    # image = models.ImageField(upload_to='images/') 
     full_name = models.CharField(max_length=255)
     date_of_birth = models.DateField()
     blood_group = models.CharField(max_length=5)

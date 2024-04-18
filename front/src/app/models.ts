@@ -1,12 +1,12 @@
 export interface PersonalData {
-    full_name: string;
-    date_of_birth: Date;
-    blood_group: string;
-    diagnosis: string;
-    allergies?: string;
-    contraindications?: string;
-    guardian_contact: string;
-    hospital: string;
+    full_name :         string
+    date_of_birth:      string
+    blood_group:        string
+    diagnosis:          string
+    allergies:          string
+    contraindications:  string
+    guardian_contact:   string
+    hospital:           string
 }
  
 

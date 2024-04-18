@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import PersonalData
+from .models import PersonalData
 
 # Register your models here.
 

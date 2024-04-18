@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import PersonalData
+from .models import PersonalData
 
 class PersonalDataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only = True)
@@ -37,3 +37,12 @@ class PersonalDataSerializer(serializers.Serializer):
 
         instance.save()
         return instance
+
+
+class PersonalDataSerializer2(serializers.ModelSerializer):
+    full_name = serializers.CharField(max_length = 70)
+    user_id = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = PersonalData
+        fields = ("id","full_name","user_id")

@@ -3,14 +3,14 @@
         <h3>Login Here</h3>
         <form [formGroup]="logInForm" (ngSubmit)="logIn()">
             <div>
-                <label for="name">Name</label>
-                <input formControlName="inputfullName" type="text">
+                <label for="email">Email</label>
+                <input formControlName="inputEmail" type="email">
                 <label for="password">Password</label>
                 <input formControlName="inputPassword" type="password">
             </div>
-            <button routerLink="['/:id/home']">Submit</button>
+            <!-- <button [routerLink]="['logIn', login.id, 'home']">Submit</button> -->
             <span>Don't have an account?
-            <a routerLink="/signup">SignUp</a></span>
+            <a [routerLink]="['/signup']">SignUp</a></span>
         </form>
 </div>
 <router-outlet></router-outlet>

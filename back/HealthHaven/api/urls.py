@@ -1,6 +1,6 @@
-from django.urls import path,include
-from api.views import PersonalListApiView, PersonalDetailAPIView
-from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+from django.urls import path, include
+from ..api.views import PersonalListApiView, PersonalDetailAPIView
+from ..api.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),

@@ -1,3 +1,5 @@
+import { EmailValidator } from "@angular/forms"
+
 export interface PersonalData {
     full_name :         string
     date_of_birth:      string
@@ -8,19 +10,12 @@ export interface PersonalData {
     guardian_contact:   string
     hospital:           string
 }
- 
+
 
 export interface signUp {
-    // id: Number;
-    // name: string;
-    // surename: string;
-    // email: string;
-    // phone_number: Number;
-    // date_of_birth: Date;
-    // gender: string;
-    // password: string;
-// =======
     id:                 number
+    email:              string
+    password:           string
     full_name :         string
     date_of_birth:      string
     blood_group:        string
@@ -29,12 +24,4 @@ export interface signUp {
     contraindications:  string
     guardian_contact:   string
     hospital:           string
-    // full_name :         string
-    // date_of_birth:      string
-    // blood_group:        string
-    // diagnosis:          string
-    // allergies:          string
-    // contraindications:  string
-    // guardian_contact:   string
-    // hospital:           string
 }

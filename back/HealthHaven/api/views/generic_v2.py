@@ -1,8 +1,8 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated,AllowAny
 
-from api.models import  PersonalData
-from api.serializers import PersonalDataSerializer2
+from ..models import  PersonalData
+from ..serializers import PersonalDataSerializer2
 
 class PersonalListApiView(generics.ListCreateAPIView):
     serializer_class = PersonalDataSerializer2

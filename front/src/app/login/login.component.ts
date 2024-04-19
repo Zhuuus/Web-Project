@@ -1,24 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from "@angular/router";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {LoginService} from "../login.service";
-import {first} from "rxjs";
-import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../login.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [
-    RouterLink,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterOutlet
-  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
 
   constructor(
@@ -29,16 +20,36 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.logInForm = this.formBuilder.group({
-      inputfullName: [''],
-      inputPassword: ['']
+      inputEmail: ['', Validators.required],
+      inputPassword: ['', Validators.required]
     });
   }
 
   logIn() {
-    this.loginService.logIn(this.f.full_name.value, this.f.password.value).pipe(first()).subscribe(
-      data => {
-        console.log(data)
+    if (this.logInForm.valid) {
+      const emailControl = this.logInForm.get('inputEmail');
+      const passwordControl = this.logInForm.get('inputPassword');
+  
+      if (emailControl && passwordControl) {
+        const email = emailControl.value;
+        const password = passwordControl.value;
+  
+        this.loginService
+          .logIn(email, password)
+          .pipe(first())
+          .subscribe(
+            (data) => {
+              console.log(data);
+              // Redirect or perform any other action upon successful login
+              this.router.navigate(['/:id/home']);
+            },
+            (error) => {
+              console.error(error);
+              // Handle login error
+            }
+          );
       }
-    )
+    }
   }
+  
 }

@@ -24,4 +24,5 @@ export interface signUp {
     contraindications:  string
     guardian_contact:   string
     hospital:           string
+    image:              string
 }

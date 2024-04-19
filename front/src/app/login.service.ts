@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  logIn(email: signUp, password: signUp): Observable<signUp> {
+  logIn(email: string, password: string) {
     const requestBody = { email, password };
     return this.http.post<signUp>(`${this.apiUrl}api/companies/`, requestBody);
   }

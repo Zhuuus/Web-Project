@@ -1,55 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { first } from 'rxjs';
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    ReactiveFormsModule,
+    RouterLink
+  ],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
 
   constructor(
-    private router: Router,
     private loginService: LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit(): void {
     this.logInForm = this.formBuilder.group({
-      inputEmail: ['', Validators.required],
-      inputPassword: ['', Validators.required]
+      inputEmail: new FormControl(''),
+      inputPassword: new FormControl('')
     });
   }
 
-  logIn() {
-    if (this.logInForm.valid) {
-      const emailControl = this.logInForm.get('inputEmail');
-      const passwordControl = this.logInForm.get('inputPassword');
-  
-      if (emailControl && passwordControl) {
-        const email = emailControl.value;
-        const password = passwordControl.value;
-  
-        this.loginService
-          .logIn(email, password)
-          .pipe(first())
-          .subscribe(
-            (data) => {
-              console.log(data);
-              // Redirect or perform any other action upon successful login
-              this.router.navigate(['/:id/home']);
-            },
-            (error) => {
-              console.error(error);
-              // Handle login error
-            }
-          );
-      }
-    }
+  get f() {
+    return this.logInForm.controls;
   }
-  
+
+  logIn() {
+    this.loginService.logIn(this.f['inputEmail'].value, this.f['inputPassword'].value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+  }
 }

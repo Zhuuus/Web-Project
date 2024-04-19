@@ -1,18 +1,34 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {signUp} from "./models";
+import {Injectable} from '@angular/core';
+import {Observable} from "rxjs";
+import {PersonalData, Token} from "./models";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8000/'
+  BASE_URL = 'http://localhost:8000';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  logIn(email: string, password: string) {
-    const requestBody = { email, password };
-    return this.http.post<signUp>(`${this.apiUrl}api/companies/`, requestBody);
+  login(username: string, password: string): Observable<Token> {
+    return this.http.post<Token>(
+      `${this.BASE_URL}/api/login/`,
+      {username, password}
+    )
+  }
+
+  getCategories(): Observable<PersonalData[]> {
+    return this.http.get<PersonalData[]>(
+      `${this.BASE_URL}/api/personaldataset/`
+    )
+  }
+
+  createCategory(name: string): Observable<PersonalData> {
+    return this.http.post<PersonalData>(
+      `${this.BASE_URL}/api/personaldataset/`,
+      {name}
+    )
   }
 }

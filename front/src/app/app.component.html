@@ -1,21 +1,18 @@
-<<<<<<< HEAD
-<!-- 
-<div>
-  <ul>
-    <li>
-      <a [routerLink]="['/home']">Home</a>
-    </li>
-    <li>
-      <a [routerLink]="['/contact']">Contact</a>
-    </li>
-    <li>
-      <a [routerLink]="['/login']">Login</a>
-    </li>
-    <li>
-      <a [routerLink]="['/personal-account']">personal account</a>
-    </li>
-  </ul> -->
+<ng-container *ngIf="!logged">
+  <h3>Login form</h3>
+  <fieldset>
+    <label for="username">Username: </label>
+    <input type="text" id="username" [(ngModel)]="username">
+  </fieldset>
+  <fieldset>
+    <label for="password">Password: </label>
+    <input type="password" id="password" [(ngModel)]="password">
+  </fieldset>
+  <button (click)="login()">Login</button>
+</ng-container>
 
+
+<ng-container *ngIf="logged">
 <div class="container">
   <div class="block-in-container-home">
     <a class="text-in-container-home" [routerLink]="['/home']">Home</a>
@@ -27,6 +24,4 @@
   </div>
 </div>
 <router-outlet />
-=======
-<router-outlet />
->>>>>>> 0001168ff72d11bc423482150b493efea89ba31f
+</ng-container>

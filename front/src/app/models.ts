@@ -26,3 +26,8 @@ export interface signUp {
     hospital:           string
     image:              string
 }
+
+export interface Token {
+    access:            string;
+    refresh:           string;
+  }

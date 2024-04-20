@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Injectable,Inject} from '@angular/core';
 import {Observable} from "rxjs";
 import {PersonalData, Token} from "./models";
 import {HttpClient} from "@angular/common/http";
+import { AsyncLocalStorage } from 'async_hooks';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class LoginService {
   BASE_URL = 'http://localhost:8000';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, ) {
   }
 
   login(username: string, password: string): Observable<Token> {
@@ -19,13 +20,13 @@ export class LoginService {
     )
   }
 
-  getCategories(): Observable<PersonalData[]> {
+  getPersonalDataset(): Observable<PersonalData[]> {
     return this.http.get<PersonalData[]>(
       `${this.BASE_URL}/api/personaldataset/`
     )
   }
 
-  createCategory(name: string): Observable<PersonalData> {
+  createPersonalData(name: string): Observable<PersonalData> {
     return this.http.post<PersonalData>(
       `${this.BASE_URL}/api/personaldataset/`,
       {name}

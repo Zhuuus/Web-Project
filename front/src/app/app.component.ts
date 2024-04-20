@@ -27,7 +27,7 @@ export class AppComponent implements OnInit{
     const access = localStorage.getItem("access");
     if (access) {
       this.logged = true;
-      this.getCategories();
+      this.getPersonalDataset();
     }
   }
 
@@ -38,16 +38,22 @@ export class AppComponent implements OnInit{
         this.logged = true;
         localStorage.setItem("access", data.access);
         localStorage.setItem("refresh", data.refresh);
-        this.getCategories();
+        this.getPersonalDataset();
       })
   }
 
-  getCategories() {
+  getPersonalDataset() {
     this.loginService
-      .getCategories()
+      .getPersonalDataset()
       .subscribe((data) => {
         this.categories = data;
       });
+  }
+
+  logout() {
+    this.logged = false;
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
   }
   
 

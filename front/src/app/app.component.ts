@@ -12,7 +12,7 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'front';
 
   logged: boolean = false;
@@ -24,11 +24,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    const access = localStorage.getItem("access");
-    if (access) {
-      this.logged = true;
-      this.getCategories();
-    }
+    // const access = localStorage.getItem("access");
+    // if (access) {
+    //   this.logged = true;
+    //   this.getCategories();
+    // }
   }
 
   login() {

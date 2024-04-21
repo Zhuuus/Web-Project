@@ -1,31 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-*{
+* {
     text-decoration: none;
-    
 }
-body{
+
+body {
     display: flex;
     margin: auto;
-    align-items: stretch;
     justify-content: center;
     max-width: 900px; /* Example value */
     width: 100%;
+    height: 100%;
     background-image: url('./fon2.jpg');
-    background-size:auto;
-    background-repeat: space ;
-
-    
+    background-size:; /* Изменено на cover */
+    background-repeat: no-repeat; /* Изменено на no-repeat */
 }
-.asd{
+
+.asd {
     display: flex;
-    
-    align-items: stretch;
-    box-shadow: 10px,10px,10px,10px,color(srgb red green blue);
+    height: 100%;
+    align-items: stretch; /* Убедитесь, что это соответствует вашим ожиданиям */
+    box-shadow: 10px 10px 10px 10px color; /* Исправлено */
     background-color: white;
- 
+}
+app-root {
 
 }
-app-root{
-    /* border-radius: 20%; */
-    width:auto;
-}
+

@@ -7,40 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit {
-  signUpForm!: FormGroup;
+export class SignUpComponent {
 
-  constructor(
-    private router: Router,
-    private signUpService: SignupService,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.signUpForm = this.formBuilder.group({
-      inputfullName: [''],
-      inputEmail: [''],
-      inputPhoneNumber: [''],
-      inputDate: [''],
-      inputPassword: ['']
-    });
-  }
-
-  signUp() {
-    this.signUpService.signUp(this.signUpForm.value)
-      .subscribe(
-        res => {
-          alert('SIGNUP SUCCESSFUL');
-          this.signUpForm.reset();
-          this.router.navigate(['login']);
-        },
-        err => {
-          alert('Something went wrong');
-        }
-      );
-  }
 }

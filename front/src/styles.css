@@ -4,22 +4,27 @@
 
 body {
     display: flex;
+    align-items: stretch; 
     margin: auto;
     justify-content: center;
     max-width: 900px; /* Example value */
     width: 100%;
     height: 100%;
     background-image: url('./fon2.jpg');
-    background-size:; /* Изменено на cover */
-    background-repeat: no-repeat; /* Изменено на no-repeat */
+    /* background: #353738; */
+    background-size: cover; /* Изменено на cover */
+    /* background-repeat: no-repeat; Изменено на no-repeat */
+    
 }
 
 .asd {
     display: flex;
-    height: 100%;
-    align-items: stretch; /* Убедитесь, что это соответствует вашим ожиданиям */
-    box-shadow: 10px 10px 10px 10px color; /* Исправлено */
+    height: 600px ;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 25px 25px 5px -5px rgba(0,0,0,.2);
     background-color: white;
+    border-radius: 5%;
 }
 app-root {
 

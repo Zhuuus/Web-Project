@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<!-- 
-<div>
-  <ul>
-    <li>
-      <a [routerLink]="['/home']">Home</a>
-    </li>
-    <li>
-      <a [routerLink]="['/contact']">Contact</a>
-    </li>
-    <li>
-      <a [routerLink]="['/login']">Login</a>
-    </li>
-    <li>
-      <a [routerLink]="['/personal-account']">personal account</a>
-    </li>
-  </ul> -->
-=======
 <ng-container *ngIf="!logged">
   <h3>Login form</h3>
   <fieldset>
@@ -28,7 +10,6 @@
   </fieldset>
   <button (click)="login()">Login</button>
 </ng-container>
->>>>>>> 33e14c858284fb76584355374d2d3c98d55d9a59
 
 
 <ng-container *ngIf="logged">
@@ -43,7 +24,4 @@
   </div>
 </div>
 <router-outlet />
-<<<<<<< HEAD
-=======
 </ng-container>
->>>>>>> 33e14c858284fb76584355374d2d3c98d55d9a59

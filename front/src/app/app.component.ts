@@ -4,6 +4,7 @@ import {PersonalData} from "./models";
 import { LoginService } from './login.service';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +17,14 @@ export class AppComponent implements OnInit {
   title = 'front';
 
   logged: boolean = false;
+  signed: boolean = false;
   username: string = "";
   password: string = "";
+  signupUsername: string = "";
+  signupPassword: string = "";
   categories: PersonalData[] = [];
   // newCategory: string = "";
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private signupService: SignupService) {
   }
 
   ngOnInit() {
@@ -40,6 +44,18 @@ export class AppComponent implements OnInit {
         localStorage.setItem("refresh", data.refresh);
         this.getPersonalDataset();
       })
+  }
+
+  signup() {
+    this.signed = true
+  }
+
+  register() {
+    this.signupService.signUp(this.signupUsername, this.signupPassword).subscribe((data) => {
+      this.signed = false;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   getPersonalDataset() {

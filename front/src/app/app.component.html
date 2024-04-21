@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 <div>
   <ul>
@@ -14,15 +15,35 @@
       <a [routerLink]="['/personal-account']">personal account</a>
     </li>
   </ul> -->
+=======
+<ng-container *ngIf="!logged">
+  <h3>Login form</h3>
+  <fieldset>
+    <label for="username">Username: </label>
+    <input type="text" id="username" [(ngModel)]="username">
+  </fieldset>
+  <fieldset>
+    <label for="password">Password: </label>
+    <input type="password" id="password" [(ngModel)]="password">
+  </fieldset>
+  <button (click)="login()">Login</button>
+</ng-container>
+>>>>>>> 33e14c858284fb76584355374d2d3c98d55d9a59
 
+
+<ng-container *ngIf="logged">
 <div class="container">
   <div class="block-in-container-home">
     <a class="text-in-container-home" [routerLink]="['/home']">Home</a>
   </div>
   <div class="block-in-container-other">
     <a class="text-in-container-other" [routerLink]="['/contact']">Contact</a>
-    <a class="text-in-container-other" [routerLink]="['/login']">Login</a> 
-    <a class="text-in-container-other" [routerLink]="['/personal-account']">personal account</a>   
+    <a class="text-in-container-other" [routerLink]="['/personal-account']">Personal Account</a>   
+    <button (click)="logout()">Logout</button>
   </div>
 </div>
 <router-outlet />
+<<<<<<< HEAD
+=======
+</ng-container>
+>>>>>>> 33e14c858284fb76584355374d2d3c98d55d9a59

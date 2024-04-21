@@ -1,5 +1,3 @@
-import { EmailValidator } from "@angular/forms"
-
 export interface PersonalData {
     full_name :         string
     date_of_birth:      string
@@ -26,3 +24,8 @@ export interface signUp {
     hospital:           string
     image:              string
 }
+
+export interface Token {
+    access:            string;
+    refresh:           string;
+  }

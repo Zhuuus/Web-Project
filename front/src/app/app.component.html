@@ -19,13 +19,14 @@
   <h1>Hi Welcome Back</h1>
     <h3>Create An Account</h3>
     <fieldset>
-      <label for="username">Username: </label>
-      <input type="text" id="username" [(ngModel)]="username">
+      <label for="signupUsername">Username: </label>
+      <input type="text" id="signupUsername" [(ngModel)]="signupUsername">
     </fieldset>
     <fieldset>
-      <label for="password">Password: </label>
-      <input type="password" id="password" [(ngModel)]="password">
+      <label for="signupPassword">Password: </label>
+      <input type="password" id="signupPassword" [(ngModel)]="signupPassword">
     </fieldset>
+    <button (click)="register()">Sign Up</button>
   </ng-container>
 
 

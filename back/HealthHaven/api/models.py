@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class PersonalData(models.Model):
-    # image = models.ImageField(upload_to='images/') 
+    # image = models.ImageField(null=True,blank=True,upload_to="images/") 
     full_name = models.CharField(max_length=255)
     date_of_birth = models.DateField()
     blood_group = models.CharField(max_length=5)

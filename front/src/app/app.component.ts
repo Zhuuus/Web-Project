@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
   signed: boolean = false;
   username: string = "";
   password: string = "";
+  signupUsername: string = "";
+  signupPassword: string = "";
   categories: PersonalData[] = [];
   // newCategory: string = "";
   constructor(private loginService: LoginService, private signupService: SignupService) {
@@ -48,6 +50,14 @@ export class AppComponent implements OnInit {
     this.signed = true
   }
 
+  register() {
+    this.signupService.signUp(this.signupUsername, this.signupPassword).subscribe((data) => {
+      this.signed = false;
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
   getPersonalDataset() {
     this.loginService
       .getPersonalDataset()
@@ -62,5 +72,4 @@ export class AppComponent implements OnInit {
     localStorage.removeItem("refresh");
   }
   
-
 }

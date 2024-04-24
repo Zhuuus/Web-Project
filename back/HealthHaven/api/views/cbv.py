@@ -62,13 +62,24 @@ class PersonalDetailAPIView(APIView):
 
 class SignupAPIView(APIView):
     def post(self, request):
-        username = request.data.get('username')
+        first_name = request.data.get('first_name')
+        last_name = request.data.get('last_name')
         password = request.data.get('password')
+        email = request.data.get('email')
+        phone_number = request.data.get('phone_number')
+        date_of_birth =request.data.get('date_of_birth')
 
-        if not (username and password):
+        if not (first_name and password):
             return Response({'error': 'Both username and password are required'}, status=status.HTTP_400_BAD_REQUEST)
         
-        user = User.objects.create_user(username=username, password=password)
+        user = User.objects.create_user(first_name=first_name, 
+                                        last_name=last_name, 
+                                        email=email, 
+                                        phone_number=phone_number, 
+                                        date_of_birth=date_of_birth, 
+                                        password=password
+                                        )
+
         if user:
             return Response({'success': 'User created successfully'}, status=status.HTTP_201_CREATED)
         else:

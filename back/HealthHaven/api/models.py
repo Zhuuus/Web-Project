@@ -2,38 +2,50 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class PersonalData(models.Model):
-    # image = models.ImageField(null=True,blank=True,upload_to="images/") 
-    full_name = models.CharField(max_length=255)
-    date_of_birth = models.DateField()
-    blood_group = models.CharField(max_length=5)
-    diagnosis = models.CharField(max_length=255)
-    allergies = models.TextField(blank=True)
-    contraindications = models.TextField(blank=True)
-    guardian_contact = models.CharField(max_length=20)
-    hospital = models.CharField(max_length=255)
-    user = models.ForeignKey(User,
+    image = models.ImageField(null=True, blank=True, upload_to="images/") 
+    name = models.CharField(max_length=255, blank=False,default="Nurzat")# Сделал имя обязательным
+    surname = models.CharField(max_length=255, blank=False,default="Turganbek")  # Сделал фамилию обязательной
+    email = models.EmailField(max_length=255, blank=False)  # Сделал email обязательным
+    phone_number = models.CharField(max_length=255, blank=True)# Остальные поля необязательные
+    date_of_birth = models.DateField(null=True, blank=True)
+    blood_group = models.CharField(max_length=5, null=True, blank=True)
+    diagnosis = models.CharField(max_length=255, null=True, blank=True)
+    allergies = models.TextField(blank=True,null=True)
+    contraindications = models.TextField(blank=True,null=True)
+    guardian_contact = models.CharField(max_length=20, null=True, blank=True)
+    hospital = models.CharField(max_length=255, null=True, blank=True)
+    user = models.ForeignKey(
+        User,
         on_delete=models.CASCADE,
         related_name='personaldataset',
-        null=True,blank=True
-        )
+        null=True,
+        blank=True
+    )
+
     
     class Meta():
         verbose_name = "PersonalData"
         verbose_name_plural = "PersonalDataset"
     
     def __str__(self):
-        return f"full_name: {self.full_name}, " \
-           f"date_of_birth: {self.date_of_birth}, " \
-           f"blood_group: {self.blood_group}, " \
-           f"diagnosis: {self.diagnosis}, " \
-           f"allergies: {self.allergies}, " \
-           f"contraindications: {self.contraindications}, " \
-           f"guardian_contact: {self.guardian_contact}, " \
-           f"hospital: {self.hospital}"
+        return f"image: {self.image}, " \
+            f"name: {self.name}, " \
+            f"surename: {self.surname}, " \
+            f"email: {self.email}, " \
+            f"date_of_birth: {self.date_of_birth}, " \
+            f"blood_group: {self.blood_group}, " \
+            f"diagnosis: {self.diagnosis}, " \
+            f"allergies: {self.allergies}, " \
+            f"contraindications: {self.contraindications}, " \
+            f"guardian_contact: {self.guardian_contact}, " \
+            f"hospital: {self.hospital}"
     
     def to_json(self):
         return {
-            "full_name": self.full_name,
+            "image" : self.image,
+            "name" : self.name,
+            "surename": self.surname,
+            "email" : self.email,
             "date_of_birth": self.date_of_birth,
             "blood_group": self.blood_group,
             "diagnosis": self.diagnosis,

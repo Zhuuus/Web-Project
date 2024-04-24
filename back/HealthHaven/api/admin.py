@@ -5,5 +5,5 @@ from .models import PersonalData
 
 @admin.register(PersonalData)
 class PersonalDataAdmin(admin.ModelAdmin):
-    list_display = ('id', 'full_name', 'user')
+    list_display = ('id', 'name', 'user')
     search_fields = ('name',)

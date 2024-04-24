@@ -10,8 +10,9 @@ body {
     
 }
 
+
+/* Home CSS */
 .container {
-    
     border-radius: 10px 10px 0 0;
     display: flex;
     width: 100%;
@@ -27,12 +28,7 @@ body {
     
 }
 
-.block-in-container-home {
-    text-align: left;
-
-}
-
-.block-in-container-other {
+.block-in-container {
     text-align: right;
     display: flex;
     flex-direction: row;
@@ -40,15 +36,40 @@ body {
     
 }
 
-.text-in-container-other{
+.text-in-container-logout {
+    font-size: 18px;
+    border-color: rgb(10, 212, 248);
+    background-color: rgb(255, 249, 249);
+    margin-left: 28px;
+    color: rgb(10, 212, 248);
+    border-radius: 5px;
+}
+
+.text-in-container{
     margin-left: 28px;
     color: rgb(255, 249, 249);
 }
 
-.text-in-container-home {
-    color: rgb(255, 249, 249);
+*, :after, :before {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
 }
 
-*, :after, :before {
-    box-sizing: border-box;
+
+
+
+/* Sign UP CSS */
+
+.main-signup{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.data-register {
+    flex-direction: row;
+    padding: 20px;
 }

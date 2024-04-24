@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {Data, RouterLink, RouterOutlet} from '@angular/router';
 import {PersonalData} from "./models";
 import { LoginService } from './login.service';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import { SignupService } from './signup.service';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +21,13 @@ export class AppComponent implements OnInit {
   signed: boolean = false;
   username: string = "";
   password: string = "";
-  signupUsername: string = "";
+  signupName: string = "";
+  signupSurename: string = "";
+  signupEmail: string = "";
+  signupPhonenumber: string = "";
+  signupDatabirthday: Data = Date;
   signupPassword: string = "";
+  signupPasswordagain: string = "";
   categories: PersonalData[] = [];
   // newCategory: string = "";
   constructor(private loginService: LoginService, private signupService: SignupService) {
@@ -46,17 +52,30 @@ export class AppComponent implements OnInit {
       })
   }
 
+  passwordsMatch(): boolean {
+    return this.signupPassword === this.signupPasswordagain;
+  }
+
   signup() {
     this.signed = true
   }
 
-  register() {
-    this.signupService.signUp(this.signupUsername, this.signupPassword).subscribe((data) => {
-      this.signed = false;
-    }, (error) => {
-      console.log(error);
-    });
+  comeback() {
+    this.signed = false
   }
+
+  register() {
+    if (this.passwordsMatch()) {
+      this.signupService.signUp(this.signupName, this.signupSurename, this.signupEmail, this.signupPassword).subscribe((data) => {
+        this.signed = false;
+      }, (error) => {
+        console.log(error);
+      });
+    } else {
+      console.log('Пароли не совпадают');
+    }
+  }
+  
 
   getPersonalDataset() {
     this.loginService

@@ -1,5 +1,9 @@
 export interface PersonalData {
-    full_name :         string
+    image:              string
+    name :              string
+    sur_name:           string
+    email:              string
+    phone_number:       string
     date_of_birth:      string
     blood_group:        string
     diagnosis:          string
@@ -7,22 +11,6 @@ export interface PersonalData {
     contraindications:  string
     guardian_contact:   string
     hospital:           string
-}
-
-
-export interface signUp {
-    // id:                 number
-    // email:              string
-    full_name :         string
-    password:           string
-    // date_of_birth:      string
-    // blood_group:        string
-    // diagnosis:          string
-    // allergies:          string
-    // contraindications:  string
-    // guardian_contact:   string
-    // hospital:           string
-    // image:              string
 }
 
 export interface Token {

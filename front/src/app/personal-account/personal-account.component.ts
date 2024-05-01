@@ -25,4 +25,5 @@ export class PersonalAccountComponent implements OnInit {
         this.personalData = data;
       });
     }
+    
 }

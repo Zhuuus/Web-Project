@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'HealthHaven.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthhaven',
+        'NAME': 'health_haven',
         'USER': 'postgres',
         'PASSWORD': 'LegenDa7*',
         'HOST': 'localhost',

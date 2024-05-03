@@ -5,12 +5,12 @@ import { LoginService } from './login.service';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import { SignupService } from './signup.service';
-import { log } from 'node:console';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule,RouterLink],
+  imports: [RouterOutlet, CommonModule, FormsModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   signupPhonenumber: string = "";
   signupDatabirthday: Data = Date;
   signupPassword: string = "";
-  signupPasswordagain: string = "";
+  signupPasswordagain: string = ""; 
   categories: PersonalData[] = [];
   // newCategory: string = "";
   constructor(private loginService: LoginService, private signupService: SignupService) {
@@ -65,8 +65,8 @@ export class AppComponent implements OnInit {
   }
 
   register() {
-    if (this.passwordsMatch()) {
-      this.signupService.signUp(this.signupName, this.signupSurename, this.signupEmail, this.signupPhonenumber, this.signupDatabirthday, this.signupPassword).subscribe((data) => {
+    if (this.passwordsMatch() ) {
+      this.signupService.signUp(this.signupName, this.signupSurename, this.signupEmail, this.signupPassword).subscribe((data) => {
         this.signed = false;
       }, (error) => {
         console.log(error);

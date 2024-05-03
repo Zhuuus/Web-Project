@@ -63,6 +63,13 @@ def user_data_view(request):
     user_data = {
         'username': user.username,
         'email': user.email,
+        'last_name': user.last_name
+
         # Add more fields as needed
     }
+
+    if hasattr(user, 'profile'):
+        user_data['phone_number'] = user.profile.phone_number
+        user_data['date_of_birth'] = user.profile.date_of_birth
+        
     return JsonResponse(user_data)

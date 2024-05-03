@@ -1,5 +1,5 @@
 <!-- <p>personal-account works!</p> -->
-<div class="accout">
+<!-- <div class="accout">
     
     <div class="head" >
         <h1>Личные данные</h1>
@@ -26,4 +26,9 @@
             </ul>  
         </div>
     </div>
+</div> -->
+
+<div *ngIf="userData">
+    <p>Username: {{ userData.username }}</p>
+    <p>Email: {{ userData.email }}</p>
 </div>

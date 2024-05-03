@@ -28,8 +28,47 @@
     </div>
 </div> -->
 
-<div *ngIf="userData">
+<div class="container" *ngIf="userData">
+  <div class="user-info">
     <p>Username: {{ userData.username }}</p>
     <p>Email: {{ userData.email }}</p>
     <p>Last name: {{ userData.last_name }}</p>
+  </div>
+
+  <ul class="list">
+      <li class="list-item" *ngFor="let c of personaldataset">
+        <strong>Контактный номер опекуна:</strong> {{c.phone_number}}   <img src="{{c.image}}" alt="Photo">
+      </li>
+    </ul>
+
+  <fieldset class="form-container">
+    <input type="text" [(ngModel)]="phone_number" class="input-text" placeholder="Enter phone number">
+    <div class="file-input">
+      <label class="button" for="photoInput">Upload Photo</label>
+      <input type="file" id="photoInput" (change)="onFileSelected($event)">
+    </div>
+    <button class="button" (click)="addPersonaldata()">Add Personal Data</button>
+  </fieldset>
+  
 </div>
+
+
+<!-- 
+<div *ngIf="userData">
+    <h2>Личный кабинет</h2>
+    <form (ngSubmit)="updatePersonalData()" #userDataForm="ngForm">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userData.full_name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email" required>
+      </div>
+      <div class="form-group">
+        <label for="last_name">last_name</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" [(ngModel)]="userData.last_name" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Обновить данные</button>
+    </form>
+  </div> -->

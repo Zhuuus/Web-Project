@@ -13,7 +13,7 @@ urlpatterns = [
     path("personaldataset/", PersonalListApiView.as_view()),
     path("personaldataset/<int:id>/", PersonalDetailAPIView.as_view()),
 
-    # path('posts/',post_list),
+    path('posts/',post_list),
     # path('posts/<int:pk>/',post_detail),
     # path('user/<int:pk>/posts/',User_posts)
 ]

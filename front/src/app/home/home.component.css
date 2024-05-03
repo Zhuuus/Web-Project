@@ -1,6 +1,6 @@
 .post {
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     display: flex;
     border: 1px solid aqua;
     flex-direction: column;
@@ -15,18 +15,42 @@
 }
 
 .header {
+
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: flex-start;
 }
 
 .header-text {
-    size: 10px;
+    font-size: 10px;
+    margin-right: 10px; /* добавим небольшой отступ между текстом и изображением */
 }
 
 .header-image {
+    margin: 0px;
+    width: 50px; /* установим фиксированную ширину для изображения */
+    height: auto; /* чтобы сохранить соотношение сторон */
+}
+
+
+.header {
     width: 100%;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* изменено на justify-content: center; */
+}
+
+.header-image {
+    margin: auto; /* добавлено для центрирования изображения */
+    width: 50px;
     height: auto;
+}
+
+.header-text {
+    display: block;
+    color: #333;
+    margin: auto;
+    font: 15px/18px Arial,Helvetica,Sans-Serif;
 }

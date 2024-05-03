@@ -48,9 +48,6 @@ class PersonalData(models.Model):
     
     def __str__(self):
         return f"image: {self.image}, " \
-            f"name: {self.name}, " \
-            f"surename: {self.surname}, " \
-            f"email: {self.email}, " \
             f"date_of_birth: {self.date_of_birth}, " \
             f"blood_group: {self.blood_group}, " \
             f"diagnosis: {self.diagnosis}, " \
@@ -62,9 +59,6 @@ class PersonalData(models.Model):
     def to_json(self):
         return {
             "image" : self.image,
-            "name" : self.name,
-            "surename": self.surname,
-            "email" : self.email,
             "date_of_birth": self.date_of_birth,
             "blood_group": self.blood_group,
             "diagnosis": self.diagnosis,

@@ -7,6 +7,7 @@ body {
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
+    max-width: 900px;
     
 }
 
@@ -34,21 +35,38 @@ body {
     flex-direction: row;
     align-items: center;
     
+    
 }
 
 .text-in-container-logout {
-    font-size: 18px;
-    border-color: rgb(10, 212, 248);
-    background-color: rgb(255, 249, 249);
-    margin-left: 28px;
+    /* font-size: 18px;
+    /* border-color: rgb(10, 212, 248); */
+    /* background-color: rgb(255, 249, 249); */
+    /* margin-left: 28px;
     color: rgb(10, 212, 248);
-    border-radius: 5px;
+    border-radius: 5px; */ 
+    margin-left: 28px;
+    color: rgb(255, 249, 249);
+    transition: all 0.3s ease;
+}
+.text-in-container-logout:hover {
+    font-size: 30px;
+    
 }
 
 .text-in-container{
     margin-left: 28px;
     color: rgb(255, 249, 249);
+    transition: all 0.3s ease;
 }
+.text-in-container:hover {
+    /* border-radius: 15px;
+    box-shadow: 0 0 20px #000000 , 0 0 50px #000000,0 0 90px #19222a;
+    background-color: #2196f3;
+    color: white; */
+    font-size: 30px;
+    margin-left: 6px;
+      }
 
 *, :after, :before {
     justify-content: space-between;

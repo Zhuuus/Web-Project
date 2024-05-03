@@ -1,5 +1,6 @@
 * {
     text-decoration: none;
+    
 }
 
 body {
@@ -24,6 +25,7 @@ body {
     border: 1px solid lightgray;
     box-shadow: 25px 25px 5px -5px rgba(0,0,0,.2);
     background-color: white;
+    /* background-image: url("https://www.newcap.com/wp-content/uploads/2019/03/AdobeStock_137665327-min.jpg"); */
     border-radius: 5%;
 }
 app-root {

@@ -69,11 +69,17 @@
 
 <ng-container *ngIf="logged">
 <div class="container">
+
   <div class="block-in-container">
-    <a class="text-in-container" [routerLink]="['/home']">Home</a>
-    <a class="text-in-container" [routerLink]="['/contact']">Contact</a>
-    <a class="text-in-container" [routerLink]="['/personal-account']">Personal Account</a>   
-    <button class="text-in-container-logout" (click)="logout()">Logout</button>
+    <div class="box">
+      <a class="text-in-container" [routerLink]="['/home']">Home</a>
+      <a class="text-in-container" [routerLink]="['/contact']">Contact</a>
+      <a class="text-in-container" [routerLink]="['/personal-account']">Personal Account</a>   
+    </div>
+    <!-- <button class="text-in-container-logout" (click)="logout()">Logout</button> -->
+
+    <a class="text-in-container-logout" href="#" (click)="logout()">Logout</a>
+
   </div>
 </div>
 <router-outlet />

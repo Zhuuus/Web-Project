@@ -16,13 +16,18 @@ import { PersonalData } from '../models';
   
 })
 export class PersonalAccountComponent implements OnInit {
-  personalData: any[] = [];
+  userData: any;
 
   constructor(private personalDataService: PersonalDataService) {}
 
     ngOnInit(): void {
-      this.personalDataService.getPersonalDataset().subscribe(data => {
-        this.personalData = data;
-      });
+      this.personalDataService.getUserData().subscribe(data => {
+        this.userData = data;
+      },
+      (error) => {
+        console.error('Error fetching user data:', error);
+      }
+    );
     }
+    
 }

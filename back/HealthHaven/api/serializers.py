@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import PersonalData
+from .models import Post
 
 class PersonalDataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only = True)
@@ -56,3 +57,12 @@ class PersonalDataSerializer2(serializers.ModelSerializer):
     class Meta:
         model = PersonalData
         fields = ("id","full_name","user_id", "email")
+
+class PostSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(max_length = 255)
+    author = serializers.CharField(max_length = 70, read_only = True)
+    user_id = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Post
+        fields = ("id","title","user_id", "author")

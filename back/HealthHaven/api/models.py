@@ -2,35 +2,23 @@ from django.db import models
 from django.contrib.auth.models import User,Permission,Group
 from django.contrib.auth.models import AbstractUser
 
-class User(AbstractUser):
-    image = models.ImageField(null=True, blank=True, upload_to="images/")
-    phone_number = models.CharField(max_length=255, blank=True, unique=True)
-    date_of_birth = models.DateField(null=True, blank=True)
-    blood_group = models.CharField(max_length=5, null=True, blank=True)
-    diagnosis = models.CharField(max_length=255, null=True, blank=True)
-    allergies = models.TextField(blank=True,null=True)
-    contraindications = models.TextField(blank=True,null=True)
-    guardian_contact = models.CharField(max_length=20, null=True, blank=True)
-    hospital = models.CharField(max_length=255, null=True, blank=True)
+# class User(AbstractUser):
+#     image = models.ImageField(null=True, blank=True, upload_to="images/")
+#     phone_number = models.CharField(max_length=255, blank=True, unique=True)
+#     date_of_birth = models.DateField(null=True, blank=True)
+#     blood_group = models.CharField(max_length=5, null=True, blank=True)
+#     diagnosis = models.CharField(max_length=255, null=True, blank=True)
+#     allergies = models.TextField(blank=True,null=True)
+#     contraindications = models.TextField(blank=True,null=True)
+#     guardian_contact = models.CharField(max_length=20, null=True, blank=True)
+#     hospital = models.CharField(max_length=255, null=True, blank=True)
 
 
-    user_permissions = models.ManyToManyField(Permission, related_name="personal_data_permissions")
-    groups = models.ManyToManyField(Group, related_name="personal_data_groups")
+#     user_permissions = models.ManyToManyField(Permission, related_name="personal_data_permissions")
+#     groups = models.ManyToManyField(Group, related_name="personal_data_groups")
 
-    REQUIRED_FIELDS = ['username', 'password', 'email']
+#     REQUIRED_FIELDS = ['username', 'password', 'email']
 
-
-    
-
-    # class Meta:
-    #     related_name = "User"
-    #     related_name_plural = "Users"
-    #     verbose_name = "User"
-    #     verbose_name_plural = "Users"
-    #     permissions = [
-    #         ("view_user", "Can view user"),
-    #         ("change_user", "Can change user"),
-    #     ]
 
 class PersonalData(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to="images/")
